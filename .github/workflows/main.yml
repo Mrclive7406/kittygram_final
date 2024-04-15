@@ -20,9 +20,11 @@ on:
 
 jobs:
   tests:
-     runs-on: ubuntu-latest
+    # Разворачиваем окружение:
+    runs-on: ubuntu-latest
+
     steps:
-     - name: Check out code
+    - name: Check out code
       uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v4
