@@ -4,19 +4,6 @@ on:
     branches:
       - main
 jobs:
-  checkout-and-print-tree:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - name: Print project tree
-        run: tree .
-name: Main Taski workflow
-on:
-  push:
-    branches:
-      - main
-jobs:
   tests:
     # Разворачиваем окружение:
     runs-on: ubuntu-latest
