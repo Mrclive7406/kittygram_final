@@ -12,12 +12,10 @@ jobs:
       - name: Print project tree
         run: tree .
 name: Main Taski workflow
-
 on:
   push:
     branches:
       - main
-
 jobs:
   tests:
     # Разворачиваем окружение:
