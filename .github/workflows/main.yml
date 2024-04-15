@@ -1,5 +1,5 @@
 name: Main Kittygram Workflow
-om:
+on:
   push:
     branches:
       - main
