@@ -14,6 +14,7 @@ services:
     env_file: .env
     volumes:
       - static_volume:/backend_static
+      - media:/app/media
   frontend:
     image: mrclive7406/kittygram_frontend  # Качаем с Docker Hub
     env_file: .env
@@ -25,5 +26,6 @@ services:
     env_file: .env
     volumes:
       - static_volume:/staticfiles/
+      - media:/app/media
     ports:
       - 9000:80
