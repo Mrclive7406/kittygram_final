@@ -112,14 +112,10 @@ jobs:
           context: ./nginx/
           push: true
           tags: mrclive7406/kittygram_gateway:latest
-on:
-  push:
-    branches:
-      - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if:github.ref == 'refs/heads/main'
     needs: 
       - build_and_push_to_docker_hub
       - build_frontend_and_push_to_docker_hub
@@ -131,7 +127,6 @@ jobs:
       - name: Copy docker-compose.yml via ssh
         uses: appleboy/scp-action@master
         with:
-          if: github.ref == 'refs/heads/main'
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
@@ -142,7 +137,6 @@ jobs:
       - name: Executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
-          if: github.ref == 'refs/heads/main'
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
